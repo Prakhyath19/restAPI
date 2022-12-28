@@ -3,8 +3,13 @@ class Functions {
     this.functions = {
       pickRandom: (...args) => args[Math.floor(Math.random() * args.length)],
       concatenate: (...args) => args.join(''),
-      join: (...args) => args.join(', '),
+      join: (...args) => this.join(...args)
     }
+  }
+  join(...args){
+    const seperator=args[args.length-1];
+    args.pop();
+    return (args.join(seperator));
   }
   evaluate(expression) {
     // Match a string literal
